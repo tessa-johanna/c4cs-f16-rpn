@@ -15,7 +15,7 @@ def calculate(myarg):
 	for token in myarg.split():
 		try:
 			token = int(token)
-			stack.append(token))
+			stack.append(token)
 		except ValueError:
 			function = operators[token]
 			arg2 = stack.pop()
