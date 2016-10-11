@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-def add(a, b):
-	return a+b
-
 import operator
 
 operators = {
@@ -13,25 +10,27 @@ operators = {
 }
 
 
-def calculate(myarg1):
+def calculate(myarg):
 	stack = list()
-	for token in myarg1.split():
+	for token in myarg.split():
 		try:
-			stack.append(int(token))
+			token = int(token)
+			stack.append(token))
 		except ValueError:
+			function = operators[token]
 			arg2 = stack.pop()
 			arg1 = stack.pop()
-			function = operators[token]
 			result = function(arg1, arg2)
 			stack.append(result)
 		print(stack)
 	if len(stack) !=1:
-		raise TypeError
+		raise TypeError("too many parameters")
 	return stack.pop()
 
 def main():
 	while True:
 		calculate(input("rpn calc> "))
+		print("Result: ", result)
 
 if __name__ == '__main__':
 	main()
