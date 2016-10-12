@@ -18,3 +18,6 @@ class TestBasics(unittest.TestCase):
 	def test_toomanythings(self):
 		with self.assertRaises(TypeError):
 			rpn.calculate("1 2 3 +")
+	def test-_carat(self):
+		result = rpn.calculate("3 2 ^")
+		self.assertEqual(9, result)
